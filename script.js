@@ -177,6 +177,9 @@ class SeniorLivingCalculator {
         document.getElementById('seniorPercentage').textContent = `${seniorPercentage.toFixed(1)}%`;
         document.getElementById('differencePercentage').textContent = `${Math.abs(percentageDiff).toFixed(1)}%`;
 
+        // Populate current living cost breakdown
+        this.populateCurrentBreakdown();
+
         // Update annual breakdown
         const currentAnnual = currentTotal * 12;
         const seniorAnnual = seniorTotal * 12;
@@ -193,18 +196,48 @@ class SeniorLivingCalculator {
         document.getElementById('exportBtn').style.display = 'flex';
     }
 
+    populateCurrentBreakdown() {
+        const breakdownContainer = document.getElementById('currentBreakdown');
+        const categories = [
+            { id: 'housing', name: 'Housing' },
+            { id: 'utilities', name: 'Utilities' },
+            { id: 'food', name: 'Food' },
+            { id: 'healthcare', name: 'Healthcare' },
+            { id: 'transportation', name: 'Transportation' },
+            { id: 'maintenance', name: 'Maintenance' },
+            { id: 'insurance', name: 'Insurance' },
+            { id: 'entertainment', name: 'Entertainment' },
+            { id: 'other', name: 'Other' }
+        ];
+
+        breakdownContainer.innerHTML = '';
+        
+        categories.forEach(category => {
+            const value = parseFloat(document.getElementById(category.id).value) || 0;
+            if (value > 0) {
+                const costItem = document.createElement('div');
+                costItem.className = 'cost-item';
+                costItem.innerHTML = `
+                    <span class="item-name">${category.name}</span>
+                    <span class="item-amount">${this.formatCurrency(value)}</span>
+                `;
+                breakdownContainer.appendChild(costItem);
+            }
+        });
+    }
+
     updateSavingsMessage(difference, percentageDiff, annualSavings) {
         const messageElement = document.getElementById('savingsMessage');
         let message = '';
         let className = '';
 
         if (difference < 0) {
-            // Senior living is cheaper
-            message = `Great news! Senior living could save you ${this.formatCurrency(Math.abs(difference))} every month (${Math.abs(percentageDiff).toFixed(1)}% less than your current costs). That's ${this.formatCurrency(Math.abs(annualSavings))} in annual savings!`;
+            // Assisted living is cheaper
+            message = `Great news! Assisted living could save you ${this.formatCurrency(Math.abs(difference))} every month (${Math.abs(percentageDiff).toFixed(1)}% less than your current costs). That's ${this.formatCurrency(Math.abs(annualSavings))} in annual savings!`;
             className = 'positive';
         } else if (difference > 0) {
-            // Senior living is more expensive
-            message = `Senior living would cost ${this.formatCurrency(difference)} more per month (${percentageDiff.toFixed(1)}% more than your current costs). That's ${this.formatCurrency(annualSavings)} more annually. Remember to consider the value of included services and amenities.`;
+            // Assisted living is more expensive
+            message = `Assisted living would cost ${this.formatCurrency(difference)} more per month (${percentageDiff.toFixed(1)}% more than your current costs). That's ${this.formatCurrency(annualSavings)} more annually. Remember to consider the value of included services and amenities.`;
             className = 'negative';
         } else {
             // Costs are the same

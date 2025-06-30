@@ -246,6 +246,52 @@ body {
     color: inherit;
 }
 
+/* Cost Breakdown Styles */
+.cost-breakdown {
+    margin-top: 15px;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.cost-breakdown .cost-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: inherit;
+}
+
+.cost-breakdown .cost-item:last-child {
+    border-bottom: none;
+}
+
+.cost-breakdown .cost-item .item-name {
+    font-weight: 500;
+}
+
+.cost-breakdown .cost-item .item-amount {
+    font-weight: 600;
+}
+
+.included-item {
+    padding: 4px 0;
+    color: inherit;
+    font-weight: 500;
+    opacity: 0.9;
+    position: relative;
+    padding-left: 20px;
+}
+
+.included-item::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #d69e2e;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
 /* Savings Analysis */
 .savings-analysis {
     background: #f7fafc;
