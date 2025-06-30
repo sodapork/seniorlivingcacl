@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Living Cost Calculator - Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .demo-banner {
+            background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        
+        .demo-banner i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="demo-banner">
+            <i class="fas fa-info-circle"></i>
+            Demo Mode - Example data is pre-filled to showcase the calculator
+        </div>
+        
+        <header class="header">
+            <h1><i class="fas fa-calculator"></i> Senior Living Cost Calculator</h1>
+            <p>Compare your current living costs with senior living facility expenses</p>
+        </header>
+
+        <div class="calculator-grid">
+            <!-- Current Living Costs Section -->
+            <div class="cost-section">
+                <h2><i class="fas fa-home"></i> Current Living Costs</h2>
+                <div class="cost-categories">
+                    <div class="cost-category">
+                        <label for="housing">Housing (Rent/Mortgage)</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="housing" placeholder="0" min="0" step="0.01" value="1800">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="utilities">Utilities (Electric, Water, Gas, Internet)</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="utilities" placeholder="0" min="0" step="0.01" value="350">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="food">Food & Groceries</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="food" placeholder="0" min="0" step="0.01" value="450">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="healthcare">Healthcare & Medications</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="healthcare" placeholder="0" min="0" step="0.01" value="280">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="transportation">Transportation (Car, Gas, Insurance)</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="transportation" placeholder="0" min="0" step="0.01" value="320">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="maintenance">Home Maintenance & Repairs</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="maintenance" placeholder="0" min="0" step="0.01" value="150">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="insurance">Insurance (Home, Life, etc.)</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="insurance" placeholder="0" min="0" step="0.01" value="120">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="entertainment">Entertainment & Recreation</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="entertainment" placeholder="0" min="0" step="0.01" value="200">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="other">Other Expenses</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="other" placeholder="0" min="0" step="0.01" value="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="total-section">
+                    <h3>Total Current Monthly Costs</h3>
+                    <div class="total-amount" id="currentTotal">$3,670.00</div>
+                </div>
+            </div>
+
+            <!-- Senior Living Costs Section -->
+            <div class="cost-section">
+                <h2><i class="fas fa-building"></i> Senior Living Facility Costs</h2>
+                
+                <div class="facility-type-selector">
+                    <label for="facilityType">Select Facility Type:</label>
+                    <select id="facilityType">
+                        <option value="independent">Independent Living</option>
+                        <option value="assisted" selected>Assisted Living</option>
+                        <option value="memory">Memory Care</option>
+                        <option value="nursing">Nursing Home</option>
+                        <option value="ccrc">CCRC (Continuing Care Retirement Community)</option>
+                    </select>
+                </div>
+
+                <div class="cost-categories">
+                    <div class="cost-category">
+                        <label for="seniorHousing">Monthly Rent/Base Cost</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="seniorHousing" placeholder="0" min="0" step="0.01" value="4750">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="seniorMeals">Meals & Dining</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="seniorMeals" placeholder="0" min="0" step="0.01" value="600">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="seniorHealthcare">Healthcare Services</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="seniorHealthcare" placeholder="0" min="0" step="0.01" value="800">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="seniorActivities">Activities & Programs</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="seniorActivities" placeholder="0" min="0" step="0.01" value="200">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="seniorTransportation">Transportation Services</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="seniorTransportation" placeholder="0" min="0" step="0.01" value="150">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="seniorUtilities">Utilities Included</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="seniorUtilities" placeholder="0" min="0" step="0.01" value="400">
+                        </div>
+                    </div>
+
+                    <div class="cost-category">
+                        <label for="seniorOther">Other Facility Costs</label>
+                        <div class="input-group">
+                            <span class="currency">$</span>
+                            <input type="number" id="seniorOther" placeholder="0" min="0" step="0.01" value="300">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="total-section">
+                    <h3>Total Senior Living Monthly Costs</h3>
+                    <div class="total-amount" id="seniorTotal">$7,200.00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Results -->
+        <div class="comparison-section" id="comparisonSection">
+            <h2><i class="fas fa-chart-line"></i> Cost Comparison Analysis</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Current Living</h3>
+                    <div class="amount" id="currentAmount">$3,670.00</div>
+                    <div class="percentage" id="currentPercentage">33.8%</div>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>Senior Living</h3>
+                    <div class="amount" id="seniorAmount">$7,200.00</div>
+                    <div class="percentage" id="seniorPercentage">66.2%</div>
+                </div>
+                
+                <div class="comparison-card difference">
+                    <h3>Difference</h3>
+                    <div class="amount" id="differenceAmount">$3,530.00</div>
+                    <div class="percentage" id="differencePercentage">96.2%</div>
+                </div>
+            </div>
+
+            <div class="savings-analysis">
+                <h3>Savings Analysis</h3>
+                <div class="savings-message negative" id="savingsMessage">
+                    Senior living would cost $3,530.00 more per month (96.2% more). That's $42,360.00 more annually.
+                </div>
+                
+                <div class="annual-breakdown">
+                    <h4>Annual Breakdown</h4>
+                    <div class="annual-grid">
+                        <div class="annual-item">
+                            <span>Current Living (Annual):</span>
+                            <span id="currentAnnual">$44,040.00</span>
+                        </div>
+                        <div class="annual-item">
+                            <span>Senior Living (Annual):</span>
+                            <span id="seniorAnnual">$86,400.00</span>
+                        </div>
+                        <div class="annual-item">
+                            <span>Annual Savings:</span>
+                            <span id="annualSavings">$42,360.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn btn-primary" id="calculateBtn">
+                <i class="fas fa-calculator"></i> Calculate Comparison
+            </button>
+            <button class="btn btn-secondary" id="resetBtn">
+                <i class="fas fa-redo"></i> Reset Calculator
+            </button>
+            <button class="btn btn-export" id="exportBtn">
+                <i class="fas fa-download"></i> Export Results
+            </button>
+        </div>
+
+        <!-- Quick Estimates Section -->
+        <div class="quick-estimates">
+            <h3><i class="fas fa-lightbulb"></i> Quick Estimates</h3>
+            <p>Need help with estimates? Here are typical monthly costs for different facility types:</p>
+            
+            <div class="estimates-grid">
+                <div class="estimate-card">
+                    <h4>Independent Living</h4>
+                    <p>$2,000 - $4,000/month</p>
+                    <button class="btn-estimate" data-type="independent">Use Estimate</button>
+                </div>
+                <div class="estimate-card">
+                    <h4>Assisted Living</h4>
+                    <p>$3,500 - $6,000/month</p>
+                    <button class="btn-estimate" data-type="assisted">Use Estimate</button>
+                </div>
+                <div class="estimate-card">
+                    <h4>Memory Care</h4>
+                    <p>$4,500 - $7,500/month</p>
+                    <button class="btn-estimate" data-type="memory">Use Estimate</button>
+                </div>
+                <div class="estimate-card">
+                    <h4>Nursing Home</h4>
+                    <p>$7,000 - $10,000/month</p>
+                    <button class="btn-estimate" data-type="nursing">Use Estimate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
