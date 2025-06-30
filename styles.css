@@ -9,7 +9,7 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #3182ce 0%, #2c7a7b 100%);
+    background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
     min-height: 100vh;
     padding: 20px 0;
 }
@@ -63,7 +63,7 @@ body {
 }
 
 .cost-section h2 {
-    color: #4a5568;
+    color: #2d3748;
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 25px;
@@ -73,7 +73,7 @@ body {
 }
 
 .cost-section h2 i {
-    color: #3182ce;
+    color: #d69e2e;
 }
 
 /* Facility Type Selector */
@@ -85,7 +85,7 @@ body {
     display: block;
     font-weight: 500;
     margin-bottom: 8px;
-    color: #4a5568;
+    color: #2d3748;
 }
 
 .facility-type-selector select {
@@ -100,7 +100,7 @@ body {
 
 .facility-type-selector select:focus {
     outline: none;
-    border-color: #3182ce;
+    border-color: #d69e2e;
 }
 
 /* Cost Categories */
@@ -118,7 +118,7 @@ body {
 
 .cost-category label {
     font-weight: 500;
-    color: #4a5568;
+    color: #2d3748;
     font-size: 0.95rem;
 }
 
@@ -147,8 +147,8 @@ body {
 
 .input-group input:focus {
     outline: none;
-    border-color: #3182ce;
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+    border-color: #d69e2e;
+    box-shadow: 0 0 0 3px rgba(214, 158, 46, 0.1);
 }
 
 .input-group input::placeholder {
@@ -164,7 +164,7 @@ body {
 }
 
 .total-section h3 {
-    color: #4a5568;
+    color: #2d3748;
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 15px;
@@ -173,7 +173,7 @@ body {
 .total-amount {
     font-size: 2rem;
     font-weight: 700;
-    color: #3182ce;
+    color: #1a365d;
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
@@ -187,7 +187,7 @@ body {
 }
 
 .comparison-section h2 {
-    color: #4a5568;
+    color: #2d3748;
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 25px;
@@ -197,7 +197,7 @@ body {
 }
 
 .comparison-section h2 i {
-    color: #3182ce;
+    color: #d69e2e;
 }
 
 .comparison-grid {
@@ -221,9 +221,9 @@ body {
 }
 
 .comparison-card.difference {
-    background: linear-gradient(135deg, #3182ce 0%, #2c7a7b 100%);
+    background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
     color: white;
-    border-color: #3182ce;
+    border-color: #1a365d;
 }
 
 .comparison-card h3 {
@@ -255,7 +255,7 @@ body {
 }
 
 .savings-analysis h3 {
-    color: #4a5568;
+    color: #2d3748;
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 20px;
@@ -289,7 +289,7 @@ body {
 }
 
 .annual-breakdown h4 {
-    color: #4a5568;
+    color: #2d3748;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 15px;
@@ -312,7 +312,7 @@ body {
     border-bottom: none;
     font-weight: 600;
     font-size: 1.1rem;
-    color: #3182ce;
+    color: #1a365d;
 }
 
 /* Action Buttons */
@@ -339,19 +339,19 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #3182ce 0%, #2c7a7b 100%);
+    background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
     color: white;
-    box-shadow: 0 4px 15px rgba(49, 130, 206, 0.4);
+    box-shadow: 0 4px 15px rgba(26, 54, 93, 0.4);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(49, 130, 206, 0.6);
+    box-shadow: 0 6px 20px rgba(26, 54, 93, 0.6);
 }
 
 .btn-secondary {
     background: white;
-    color: #4a5568;
+    color: #2d3748;
     border: 2px solid #e2e8f0;
 }
 
@@ -381,7 +381,7 @@ body {
 }
 
 .quick-estimates h3 {
-    color: #4a5568;
+    color: #2d3748;
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 15px;
@@ -391,7 +391,7 @@ body {
 }
 
 .quick-estimates h3 i {
-    color: #f6ad55;
+    color: #d69e2e;
 }
 
 .quick-estimates p {
@@ -417,11 +417,11 @@ body {
 
 .estimate-card:hover {
     transform: translateY(-3px);
-    border-color: #3182ce;
+    border-color: #d69e2e;
 }
 
 .estimate-card h4 {
-    color: #4a5568;
+    color: #2d3748;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 10px;
@@ -434,7 +434,7 @@ body {
 }
 
 .btn-estimate {
-    background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+    background: linear-gradient(135deg, #d69e2e 0%, #b7791f 100%);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -447,7 +447,7 @@ body {
 
 .btn-estimate:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(246, 173, 85, 0.4);
+    box-shadow: 0 4px 15px rgba(214, 158, 46, 0.4);
 }
 
 /* Responsive Design */
