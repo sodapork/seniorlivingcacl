@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senior Living Cost Calculator</title>
+    <title>Sunscape Boca Raton - Senior Living Cost Calculator</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,8 +11,18 @@
 <body>
     <div class="container">
         <header class="header">
+            <div class="logo-section">
+                <div class="sunscape-logo">
+                    <i class="fas fa-sun"></i>
+                    <span>SUNSCAPE</span>
+                </div>
+                <div class="location">Boca Raton</div>
+            </div>
             <h1><i class="fas fa-calculator"></i> Senior Living Cost Calculator</h1>
-            <p>Discover how senior living communities compare to your current lifestyle costs</p>
+            <p>Discover how Sunscape Boca Raton compares to your current lifestyle costs</p>
+            <div class="sunscape-tagline">
+                <i class="fas fa-heart"></i> Where Luxury Meets Care in Beautiful Boca Raton
+            </div>
         </header>
 
         <div class="calculator-grid">
@@ -99,82 +109,103 @@
                 </div>
             </div>
 
-            <!-- Senior Living Costs Section -->
-            <div class="cost-section">
-                <h2><i class="fas fa-building"></i> Senior Living Community Costs</h2>
+            <!-- Sunscape Senior Living Costs Section -->
+            <div class="cost-section sunscape-section">
+                <h2><i class="fas fa-building"></i> Sunscape Boca Raton Costs</h2>
                 
                 <div class="facility-type-selector">
-                    <label for="facilityType">Choose Your Community Type:</label>
+                    <label for="facilityType">Choose Your Sunscape Experience:</label>
                     <select id="facilityType">
-                        <option value="independent">Independent Living Community</option>
-                        <option value="assisted">Assisted Living Community</option>
-                        <option value="memory">Memory Care Community</option>
-                        <option value="nursing">Nursing Home Community</option>
-                        <option value="ccrc">CCRC (Continuing Care Retirement Community)</option>
+                        <option value="">Select your level of care...</option>
+                        <option value="assisted">Assisted Living - Starting at $3,950/month</option>
+                        <option value="memory">Memory Care (Valeo™) - Starting at $5,250/month</option>
                     </select>
+                </div>
+
+                <div class="sunscape-pricing-info">
+                    <div class="pricing-highlight">
+                        <i class="fas fa-star"></i>
+                        <span>Sunscape™ Boca Raton gives you much more for less!</span>
+                    </div>
+                    <div class="pricing-details">
+                        <p><strong>Assisted Living:</strong> Monthly fee starts at $3,950 with five wellness package options, customized to each resident's individual abilities.</p>
+                        <p><strong>Memory Care:</strong> Our Valeo™ Signature Memory Care Program is all-inclusive and starts at $5,250 per month.</p>
+                    </div>
                 </div>
 
                 <div class="cost-categories">
                     <div class="cost-category">
-                        <label for="seniorHousing">Monthly Rent/Base Cost</label>
+                        <label for="seniorHousing">Monthly Base Cost</label>
                         <div class="input-group">
                             <span class="currency">$</span>
-                            <input type="number" id="seniorHousing" placeholder="0" min="0" step="0.01">
+                            <input type="number" id="seniorHousing" placeholder="0" min="0" step="0.01" readonly>
                         </div>
                     </div>
 
-                    <div class="cost-category">
-                        <label for="seniorMeals">Meals & Dining</label>
-                        <div class="input-group">
-                            <span class="currency">$</span>
-                            <input type="number" id="seniorMeals" placeholder="0" min="0" step="0.01">
+                    <div class="cost-category included-category">
+                        <label>Gourmet Meals & Dining</label>
+                        <div class="included-badge">
+                            <i class="fas fa-check"></i>
+                            <span>Included</span>
                         </div>
                     </div>
 
-                    <div class="cost-category">
-                        <label for="seniorHealthcare">Healthcare Services</label>
-                        <div class="input-group">
-                            <span class="currency">$</span>
-                            <input type="number" id="seniorHealthcare" placeholder="0" min="0" step="0.01">
+                    <div class="cost-category included-category">
+                        <label>Healthcare Services</label>
+                        <div class="included-badge">
+                            <i class="fas fa-check"></i>
+                            <span>Included</span>
                         </div>
                     </div>
 
-                    <div class="cost-category">
-                        <label for="seniorActivities">Activities & Programs</label>
-                        <div class="input-group">
-                            <span class="currency">$</span>
-                            <input type="number" id="seniorActivities" placeholder="0" min="0" step="0.01">
+                    <div class="cost-category included-category">
+                        <label>Luxury Activities & Programs</label>
+                        <div class="included-badge">
+                            <i class="fas fa-check"></i>
+                            <span>Included</span>
                         </div>
                     </div>
 
-                    <div class="cost-category">
-                        <label for="seniorTransportation">Transportation Services</label>
-                        <div class="input-group">
-                            <span class="currency">$</span>
-                            <input type="number" id="seniorTransportation" placeholder="0" min="0" step="0.01">
+                    <div class="cost-category included-category">
+                        <label>Concierge Transportation</label>
+                        <div class="included-badge">
+                            <i class="fas fa-check"></i>
+                            <span>Included</span>
                         </div>
                     </div>
 
-                    <div class="cost-category">
-                        <label for="seniorUtilities">Utilities Included</label>
-                        <div class="input-group">
-                            <span class="currency">$</span>
-                            <input type="number" id="seniorUtilities" placeholder="0" min="0" step="0.01">
+                    <div class="cost-category included-category">
+                        <label>All Utilities</label>
+                        <div class="included-badge">
+                            <i class="fas fa-check"></i>
+                            <span>Included</span>
                         </div>
                     </div>
 
-                    <div class="cost-category">
-                        <label for="seniorOther">Other Community Costs</label>
-                        <div class="input-group">
-                            <span class="currency">$</span>
-                            <input type="number" id="seniorOther" placeholder="0" min="0" step="0.01">
+                    <div class="cost-category included-category">
+                        <label>Housekeeping & Maintenance</label>
+                        <div class="included-badge">
+                            <i class="fas fa-check"></i>
+                            <span>Included</span>
+                        </div>
+                    </div>
+
+                    <div class="cost-category included-category">
+                        <label>24/7 Care Support</label>
+                        <div class="included-badge">
+                            <i class="fas fa-check"></i>
+                            <span>Included</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="total-section">
-                    <h3>Total Senior Living Monthly Costs</h3>
+                    <h3>Total Sunscape Monthly Cost</h3>
                     <div class="total-amount" id="seniorTotal">$0.00</div>
+                    <div class="sunscape-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>All amenities and services included in base price</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -193,19 +224,20 @@
                     </div>
                 </div>
                 
-                <div class="comparison-card">
-                    <h3>Assisted Living</h3>
+                <div class="comparison-card sunscape-card">
+                    <h3>Sunscape Boca Raton</h3>
                     <div class="amount" id="seniorAmount">$0.00</div>
                     <div class="percentage" id="seniorPercentage">0%</div>
                     <div class="cost-breakdown" id="seniorBreakdown">
-                        <div class="included-item">Housing & Rent</div>
-                        <div class="included-item">Meals & Dining</div>
-                        <div class="included-item">Healthcare Services</div>
-                        <div class="included-item">Activities & Programs</div>
-                        <div class="included-item">Transportation</div>
-                        <div class="included-item">Utilities</div>
-                        <div class="included-item">Housekeeping</div>
+                        <div class="included-item">Luxury Housing & Rent</div>
+                        <div class="included-item">Gourmet Meals & Dining</div>
+                        <div class="included-item">Premium Healthcare Services</div>
+                        <div class="included-item">Luxury Activities & Programs</div>
+                        <div class="included-item">Concierge Transportation</div>
+                        <div class="included-item">All Utilities Included</div>
+                        <div class="included-item">Housekeeping & Maintenance</div>
                         <div class="included-item">24/7 Care Support</div>
+                        <div class="included-item">Beautiful Boca Raton Location</div>
                     </div>
                 </div>
                 
@@ -228,7 +260,7 @@
                             <span id="currentAnnual">$0.00</span>
                         </div>
                         <div class="annual-item">
-                            <span>Assisted Living (Annual):</span>
+                            <span>Sunscape Boca Raton (Annual):</span>
                             <span id="seniorAnnual">$0.00</span>
                         </div>
                         <div class="annual-item">
@@ -243,7 +275,7 @@
         <!-- Action Buttons -->
         <div class="action-buttons">
             <button class="btn btn-primary" id="calculateBtn">
-                <i class="fas fa-calculator"></i> See Your Comparison
+                <i class="fas fa-calculator"></i> See Your Sunscape Comparison
             </button>
             <button class="btn btn-secondary" id="resetBtn">
                 <i class="fas fa-redo"></i> Start Over
@@ -251,35 +283,57 @@
             <button class="btn btn-export" id="exportBtn" style="display: none;">
                 <i class="fas fa-download"></i> Save Your Results
             </button>
+            <a href="https://www.sunscapebocaraton.com/" class="btn btn-sunscape" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Visit Sunscape Boca Raton
+            </a>
         </div>
 
-        <!-- Quick Estimates Section -->
-        <div class="quick-estimates">
-            <h3><i class="fas fa-lightbulb"></i> Need Some Help?</h3>
-            <p>Not sure about costs? Here are typical monthly expenses for different community types:</p>
+        <!-- Sunscape Information Section -->
+        <div class="sunscape-info">
+            <h3><i class="fas fa-info-circle"></i> About Sunscape Boca Raton</h3>
+            <p>Sunscape™ Boca Raton offers luxury senior living with exceptional care, gourmet dining, and world-class amenities in beautiful Boca Raton, Florida.</p>
             
-            <div class="estimates-grid">
-                <div class="estimate-card">
-                    <h4>Independent Living</h4>
-                    <p>$2,000 - $4,000/month</p>
-                    <button class="btn-estimate" data-type="independent">Try This Estimate</button>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><i class="fas fa-heart"></i> Exceptional Care</h4>
+                    <p>Personalized care plans with five wellness package options, customized to each resident's individual abilities.</p>
                 </div>
-                <div class="estimate-card">
-                    <h4>Assisted Living</h4>
-                    <p>$3,500 - $6,000/month</p>
-                    <button class="btn-estimate" data-type="assisted">Try This Estimate</button>
+                <div class="info-card">
+                    <h4><i class="fas fa-utensils"></i> Gourmet Dining</h4>
+                    <p>Chef-prepared meals with multiple dining venues, offering restaurant-quality cuisine and flexible dining options.</p>
                 </div>
-                <div class="estimate-card">
-                    <h4>Memory Care</h4>
-                    <p>$4,500 - $7,500/month</p>
-                    <button class="btn-estimate" data-type="memory">Try This Estimate</button>
+                <div class="info-card">
+                    <h4><i class="fas fa-spa"></i> Luxury Amenities</h4>
+                    <p>Beautiful accommodations, wellness programs, cultural activities, and concierge services in a resort-like setting.</p>
                 </div>
-                <div class="estimate-card">
-                    <h4>Nursing Home</h4>
-                    <p>$7,000 - $10,000/month</p>
-                    <button class="btn-estimate" data-type="nursing">Try This Estimate</button>
+                <div class="info-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Prime Location</h4>
+                    <p>Located in beautiful Boca Raton, Florida, with easy access to beaches, shopping, cultural attractions, and medical facilities.</p>
                 </div>
             </div>
+        </div>
+
+        <!-- Sunscape Contact Section -->
+        <div class="sunscape-contact">
+            <h3><i class="fas fa-phone"></i> Ready to Learn More?</h3>
+            <p>Contact Sunscape Boca Raton today to schedule your personal tour and discover luxury senior living in beautiful Boca Raton.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>Call: (561) 555-0123</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email: info@sunscapebocaraton.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Visit: 123 Luxury Lane, Boca Raton, FL 33433</span>
+                </div>
+            </div>
+            <a href="https://www.sunscapebocaraton.com/" class="btn btn-primary" target="_blank">
+                <i class="fas fa-calendar-alt"></i> Schedule Your Tour
+            </a>
         </div>
     </div>
 

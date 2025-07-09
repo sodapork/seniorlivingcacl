@@ -4,12 +4,9 @@ class SeniorLivingCalculator {
     constructor() {
         this.currentCosts = {};
         this.seniorCosts = {};
-        this.estimates = {
-            independent: { min: 2000, max: 4000, avg: 3000 },
-            assisted: { min: 3500, max: 6000, avg: 4750 },
-            memory: { min: 4500, max: 7500, avg: 6000 },
-            nursing: { min: 7000, max: 10000, avg: 8500 },
-            ccrc: { min: 3000, max: 8000, avg: 5500 }
+        this.sunscapePricing = {
+            assisted: 3950,
+            memory: 5250
         };
         
         this.init();
@@ -39,15 +36,7 @@ class SeniorLivingCalculator {
 
         // Facility type selector
         document.getElementById('facilityType').addEventListener('change', (e) => {
-            this.updateFacilityType(e.target.value);
-        });
-
-        // Quick estimate buttons
-        document.querySelectorAll('.btn-estimate').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const type = e.target.dataset.type;
-                this.applyEstimate(type);
-            });
+            this.updateSunscapePricing(e.target.value);
         });
 
         // Real-time total updates
@@ -55,7 +44,7 @@ class SeniorLivingCalculator {
     }
 
     setupInputValidation() {
-        const inputs = document.querySelectorAll('input[type="number"]');
+        const inputs = document.querySelectorAll('input[type="number"]:not([readonly])');
         inputs.forEach(input => {
             input.addEventListener('input', (e) => {
                 this.validateInput(e.target);
@@ -75,22 +64,15 @@ class SeniorLivingCalculator {
             'entertainment', 'other'
         ];
 
-        const seniorInputs = [
-            'seniorHousing', 'seniorMeals', 'seniorHealthcare',
-            'seniorActivities', 'seniorTransportation', 
-            'seniorUtilities', 'seniorOther'
-        ];
-
         currentInputs.forEach(id => {
             document.getElementById(id).addEventListener('input', () => {
                 this.updateCurrentTotal();
             });
         });
 
-        seniorInputs.forEach(id => {
-            document.getElementById(id).addEventListener('input', () => {
-                this.updateSeniorTotal();
-            });
+        // Senior total updates when base cost changes
+        document.getElementById('seniorHousing').addEventListener('input', () => {
+            this.updateSeniorTotal();
         });
     }
 
@@ -130,20 +112,39 @@ class SeniorLivingCalculator {
     }
 
     updateSeniorTotal() {
-        const categories = [
-            'seniorHousing', 'seniorMeals', 'seniorHealthcare',
-            'seniorActivities', 'seniorTransportation', 
-            'seniorUtilities', 'seniorOther'
-        ];
-
-        let total = 0;
-        categories.forEach(category => {
-            const value = parseFloat(document.getElementById(category).value) || 0;
-            total += value;
-            this.seniorCosts[category] = value;
-        });
+        const baseCost = parseFloat(document.getElementById('seniorHousing').value) || 0;
+        const total = baseCost; // All other costs are included in Sunscape pricing
+        
+        this.seniorCosts = {
+            seniorHousing: baseCost,
+            seniorMeals: 0, // Included
+            seniorHealthcare: 0, // Included
+            seniorActivities: 0, // Included
+            seniorTransportation: 0, // Included
+            seniorUtilities: 0, // Included
+            seniorOther: 0 // Included
+        };
 
         document.getElementById('seniorTotal').textContent = this.formatCurrency(total);
+    }
+
+    updateSunscapePricing(selectedType) {
+        const baseCostInput = document.getElementById('seniorHousing');
+        
+        if (selectedType && this.sunscapePricing[selectedType]) {
+            const baseCost = this.sunscapePricing[selectedType];
+            baseCostInput.value = baseCost.toFixed(2);
+            this.updateSeniorTotal();
+            
+            // Show success message
+            const careType = selectedType === 'assisted' ? 'Assisted Living' : 'Memory Care (Valeo™)';
+            this.showAlert(`Perfect! ${careType} pricing applied: ${this.formatCurrency(baseCost)}/month`, 'success');
+        } else {
+            baseCostInput.value = '';
+            this.updateSeniorTotal();
+        }
+        
+        this.saveData();
     }
 
     calculateComparison() {
@@ -152,6 +153,11 @@ class SeniorLivingCalculator {
 
         if (currentTotal === 0 && seniorTotal === 0) {
             this.showAlert('Please enter some costs to see your comparison.', 'warning');
+            return;
+        }
+
+        if (seniorTotal === 0) {
+            this.showAlert('Please select your Sunscape care level to see the comparison.', 'warning');
             return;
         }
 
@@ -198,30 +204,30 @@ class SeniorLivingCalculator {
 
     populateCurrentBreakdown() {
         const breakdownContainer = document.getElementById('currentBreakdown');
+        breakdownContainer.innerHTML = '';
+
         const categories = [
-            { id: 'housing', name: 'Housing' },
-            { id: 'utilities', name: 'Utilities' },
-            { id: 'food', name: 'Food' },
-            { id: 'healthcare', name: 'Healthcare' },
-            { id: 'transportation', name: 'Transportation' },
-            { id: 'maintenance', name: 'Maintenance' },
-            { id: 'insurance', name: 'Insurance' },
-            { id: 'entertainment', name: 'Entertainment' },
-            { id: 'other', name: 'Other' }
+            { id: 'housing', label: 'Housing' },
+            { id: 'utilities', label: 'Utilities' },
+            { id: 'food', label: 'Food & Groceries' },
+            { id: 'healthcare', label: 'Healthcare' },
+            { id: 'transportation', label: 'Transportation' },
+            { id: 'maintenance', label: 'Maintenance' },
+            { id: 'insurance', label: 'Insurance' },
+            { id: 'entertainment', label: 'Entertainment' },
+            { id: 'other', label: 'Other Expenses' }
         ];
 
-        breakdownContainer.innerHTML = '';
-        
         categories.forEach(category => {
             const value = parseFloat(document.getElementById(category.id).value) || 0;
             if (value > 0) {
-                const costItem = document.createElement('div');
-                costItem.className = 'cost-item';
-                costItem.innerHTML = `
-                    <span class="item-name">${category.name}</span>
+                const item = document.createElement('div');
+                item.className = 'cost-item';
+                item.innerHTML = `
+                    <span class="item-name">${category.label}</span>
                     <span class="item-amount">${this.formatCurrency(value)}</span>
                 `;
-                breakdownContainer.appendChild(costItem);
+                breakdownContainer.appendChild(item);
             }
         });
     }
@@ -232,16 +238,16 @@ class SeniorLivingCalculator {
         let className = '';
 
         if (difference < 0) {
-            // Assisted living is cheaper
-            message = `Great news! Assisted living could save you ${this.formatCurrency(Math.abs(difference))} every month (${Math.abs(percentageDiff).toFixed(1)}% less than your current costs). That's ${this.formatCurrency(Math.abs(annualSavings))} in annual savings!`;
+            // Sunscape is cheaper
+            message = `Excellent! Sunscape Boca Raton could save you ${this.formatCurrency(Math.abs(difference))} every month (${Math.abs(percentageDiff).toFixed(1)}% less than your current costs). That's ${this.formatCurrency(Math.abs(annualSavings))} in annual savings! Experience luxury senior living while saving money.`;
             className = 'positive';
         } else if (difference > 0) {
-            // Assisted living is more expensive
-            message = `Assisted living would cost ${this.formatCurrency(difference)} more per month (${percentageDiff.toFixed(1)}% more than your current costs). That's ${this.formatCurrency(annualSavings)} more annually. Remember to consider the value of included services and amenities.`;
+            // Sunscape is more expensive
+            message = `Sunscape Boca Raton would cost ${this.formatCurrency(difference)} more per month (${percentageDiff.toFixed(1)}% more than your current costs). That's ${this.formatCurrency(annualSavings)} more annually. Remember to consider the premium value of luxury amenities, gourmet dining, concierge services, and the beautiful Boca Raton location.`;
             className = 'negative';
         } else {
             // Costs are the same
-            message = 'Your costs would be about the same! Consider the value of convenience, included services, and the community lifestyle when making your decision.';
+            message = 'Your costs would be about the same! Experience luxury senior living with premium amenities, gourmet dining, and exceptional care in beautiful Boca Raton at Sunscape.';
             className = 'neutral';
         }
 
@@ -268,92 +274,7 @@ class SeniorLivingCalculator {
     }
 
     getSeniorTotal() {
-        const categories = [
-            'seniorHousing', 'seniorMeals', 'seniorHealthcare',
-            'seniorActivities', 'seniorTransportation', 
-            'seniorUtilities', 'seniorOther'
-        ];
-
-        return categories.reduce((total, category) => {
-            return total + (parseFloat(document.getElementById(category).value) || 0);
-        }, 0);
-    }
-
-    applyEstimate(type) {
-        const estimate = this.estimates[type];
-        if (!estimate) return;
-
-        // Set facility type
-        document.getElementById('facilityType').value = type;
-
-        // Apply average estimate to base cost
-        document.getElementById('seniorHousing').value = estimate.avg.toFixed(2);
-
-        // Apply typical breakdown for the facility type
-        this.applyTypicalBreakdown(type);
-
-        // Update totals
-        this.updateSeniorTotal();
-
-        // Show success message
-        this.showAlert(`Great! I've filled in typical ${type} living costs for you: ${this.formatCurrency(estimate.avg)}/month`, 'success');
-    }
-
-    applyTypicalBreakdown(type) {
-        const breakdowns = {
-            independent: {
-                seniorMeals: 400,
-                seniorHealthcare: 200,
-                seniorActivities: 150,
-                seniorTransportation: 100,
-                seniorUtilities: 300,
-                seniorOther: 200
-            },
-            assisted: {
-                seniorMeals: 600,
-                seniorHealthcare: 800,
-                seniorActivities: 200,
-                seniorTransportation: 150,
-                seniorUtilities: 400,
-                seniorOther: 300
-            },
-            memory: {
-                seniorMeals: 700,
-                seniorHealthcare: 1200,
-                seniorActivities: 300,
-                seniorTransportation: 200,
-                seniorUtilities: 500,
-                seniorOther: 400
-            },
-            nursing: {
-                seniorMeals: 800,
-                seniorHealthcare: 2000,
-                seniorActivities: 150,
-                seniorTransportation: 100,
-                seniorUtilities: 600,
-                seniorOther: 500
-            },
-            ccrc: {
-                seniorMeals: 500,
-                seniorHealthcare: 400,
-                seniorActivities: 250,
-                seniorTransportation: 120,
-                seniorUtilities: 350,
-                seniorOther: 250
-            }
-        };
-
-        const breakdown = breakdowns[type];
-        if (breakdown) {
-            Object.keys(breakdown).forEach(field => {
-                document.getElementById(field).value = breakdown[field].toFixed(2);
-            });
-        }
-    }
-
-    updateFacilityType(type) {
-        // Update any facility-specific logic here
-        console.log(`Facility type changed to: ${type}`);
+        return parseFloat(document.getElementById('seniorHousing').value) || 0;
     }
 
     resetCalculator() {
@@ -365,7 +286,7 @@ class SeniorLivingCalculator {
             });
 
             // Reset facility type
-            document.getElementById('facilityType').value = 'independent';
+            document.getElementById('facilityType').value = '';
 
             // Reset totals
             document.getElementById('currentTotal').textContent = '$0.00';
@@ -390,21 +311,32 @@ class SeniorLivingCalculator {
         const data = {
             timestamp: new Date().toLocaleString(),
             currentCosts: this.currentCosts,
-            seniorCosts: this.seniorCosts,
+            sunscapeCosts: {
+                baseCost: seniorTotal,
+                includedServices: [
+                    'Gourmet Meals & Dining',
+                    'Healthcare Services',
+                    'Luxury Activities & Programs',
+                    'Concierge Transportation',
+                    'All Utilities',
+                    'Housekeeping & Maintenance',
+                    '24/7 Care Support'
+                ]
+            },
             totals: {
                 current: currentTotal,
-                senior: seniorTotal,
+                sunscape: seniorTotal,
                 difference: difference,
                 annual: {
                     current: currentTotal * 12,
-                    senior: seniorTotal * 12,
+                    sunscape: seniorTotal * 12,
                     savings: (currentTotal - seniorTotal) * 12
                 }
             },
             facilityType: document.getElementById('facilityType').value
         };
 
-        const filename = `senior-living-cost-comparison-${new Date().toISOString().split('T')[0]}.json`;
+        const filename = `sunscape-boca-raton-cost-comparison-${new Date().toISOString().split('T')[0]}.json`;
         this.downloadJSON(data, filename);
     }
 
@@ -428,8 +360,7 @@ class SeniorLivingCalculator {
         return new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
+            minimumFractionDigits: 2
         }).format(amount);
     }
 
@@ -437,86 +368,97 @@ class SeniorLivingCalculator {
         // Create alert element
         const alert = document.createElement('div');
         alert.className = `alert alert-${type}`;
-        alert.textContent = message;
+        alert.innerHTML = `
+            <div class="alert-content">
+                <i class="fas ${this.getAlertIcon(type)}"></i>
+                <span>${message}</span>
+                <button class="alert-close" onclick="this.parentElement.parentElement.remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+
+        // Style the alert
         alert.style.cssText = `
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 15px 20px;
-            border-radius: 8px;
+            background: ${this.getAlertColor(type)};
             color: white;
-            font-weight: 500;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             z-index: 1000;
-            animation: slideIn 0.3s ease-out;
-            max-width: 300px;
+            max-width: 400px;
+            animation: slideInRight 0.3s ease-out;
         `;
-
-        // Set background color based on type
-        const colors = {
-            success: '#48bb78',
-            error: '#f56565',
-            warning: '#ed8936',
-            info: '#4299e1'
-        };
-        alert.style.backgroundColor = colors[type] || colors.info;
 
         // Add to page
         document.body.appendChild(alert);
 
-        // Remove after 4 seconds
+        // Auto-remove after 5 seconds
         setTimeout(() => {
-            alert.style.animation = 'slideOut 0.3s ease-in';
-            setTimeout(() => {
-                if (alert.parentNode) {
-                    alert.parentNode.removeChild(alert);
-                }
-            }, 300);
-        }, 4000);
+            if (alert.parentElement) {
+                alert.remove();
+            }
+        }, 5000);
+    }
+
+    getAlertIcon(type) {
+        const icons = {
+            success: 'fa-check-circle',
+            error: 'fa-exclamation-circle',
+            warning: 'fa-exclamation-triangle',
+            info: 'fa-info-circle'
+        };
+        return icons[type] || icons.info;
+    }
+
+    getAlertColor(type) {
+        const colors = {
+            success: 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)',
+            error: 'linear-gradient(135deg, #f56565 0%, #e53e3e 100%)',
+            warning: 'linear-gradient(135deg, #ed8936 0%, #dd6b20 100%)',
+            info: 'linear-gradient(135deg, #4299e1 0%, #3182ce 100%)'
+        };
+        return colors[type] || colors.info;
     }
 
     saveData() {
         const data = {
-            currentCosts: {},
-            seniorCosts: {},
-            facilityType: document.getElementById('facilityType').value
+            currentCosts: this.currentCosts,
+            seniorCosts: this.seniorCosts,
+            facilityType: document.getElementById('facilityType').value,
+            timestamp: new Date().toISOString()
         };
 
-        // Save current costs
-        ['housing', 'utilities', 'food', 'healthcare', 'transportation', 'maintenance', 'insurance', 'entertainment', 'other'].forEach(id => {
-            const value = document.getElementById(id).value;
-            if (value) data.currentCosts[id] = value;
-        });
-
-        // Save senior costs
-        ['seniorHousing', 'seniorMeals', 'seniorHealthcare', 'seniorActivities', 'seniorTransportation', 'seniorUtilities', 'seniorOther'].forEach(id => {
-            const value = document.getElementById(id).value;
-            if (value) data.seniorCosts[id] = value;
-        });
-
-        localStorage.setItem('seniorLivingCalculator', JSON.stringify(data));
+        try {
+            localStorage.setItem('sunscapeCalculatorData', JSON.stringify(data));
+        } catch (e) {
+            console.warn('Could not save data to localStorage:', e);
+        }
     }
 
     loadSavedData() {
-        const saved = localStorage.getItem('seniorLivingCalculator');
-        if (saved) {
-            try {
+        try {
+            const saved = localStorage.getItem('sunscapeCalculatorData');
+            if (saved) {
                 const data = JSON.parse(saved);
                 
                 // Load current costs
-                Object.keys(data.currentCosts).forEach(id => {
-                    const element = document.getElementById(id);
-                    if (element) {
-                        element.value = data.currentCosts[id];
-                    }
-                });
+                if (data.currentCosts) {
+                    Object.keys(data.currentCosts).forEach(category => {
+                        const element = document.getElementById(category);
+                        if (element) {
+                            element.value = data.currentCosts[category].toFixed(2);
+                        }
+                    });
+                }
 
                 // Load senior costs
-                Object.keys(data.seniorCosts).forEach(id => {
-                    const element = document.getElementById(id);
-                    if (element) {
-                        element.value = data.seniorCosts[id];
-                    }
-                });
+                if (data.seniorCosts && data.seniorCosts.seniorHousing) {
+                    document.getElementById('seniorHousing').value = data.seniorCosts.seniorHousing.toFixed(2);
+                }
 
                 // Load facility type
                 if (data.facilityType) {
@@ -526,22 +468,30 @@ class SeniorLivingCalculator {
                 // Update totals
                 this.updateCurrentTotal();
                 this.updateSeniorTotal();
-
-            } catch (e) {
-                console.error('Error loading saved data:', e);
             }
+        } catch (e) {
+            console.warn('Could not load saved data:', e);
         }
     }
 
     clearSavedData() {
-        localStorage.removeItem('seniorLivingCalculator');
+        try {
+            localStorage.removeItem('sunscapeCalculatorData');
+        } catch (e) {
+            console.warn('Could not clear saved data:', e);
+        }
     }
 }
 
-// Add CSS animations for alerts
+// Initialize the calculator when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    new SeniorLivingCalculator();
+});
+
+// Add CSS for alert animations
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes slideIn {
+    @keyframes slideInRight {
         from {
             transform: translateX(100%);
             opacity: 0;
@@ -552,43 +502,24 @@ style.textContent = `
         }
     }
     
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
+    .alert-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .alert-close {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-left: auto;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+    }
+    
+    .alert-close:hover {
+        opacity: 1;
     }
 `;
-document.head.appendChild(style);
-
-// Initialize calculator when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new SeniorLivingCalculator();
-});
-
-// Add keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey || e.metaKey) {
-        switch (e.key) {
-            case 'Enter':
-                e.preventDefault();
-                document.getElementById('calculateBtn').click();
-                break;
-            case 'r':
-                e.preventDefault();
-                document.getElementById('resetBtn').click();
-                break;
-            case 'e':
-                e.preventDefault();
-                const exportBtn = document.getElementById('exportBtn');
-                if (exportBtn.style.display !== 'none') {
-                    exportBtn.click();
-                }
-                break;
-        }
-    }
-}); 
+document.head.appendChild(style); 
