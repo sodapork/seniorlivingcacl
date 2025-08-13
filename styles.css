@@ -31,27 +31,27 @@ body {
     margin-bottom: 20px;
 }
 
-.sunscape-logo {
+.serenades-logo {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     font-size: 2rem;
     font-weight: 700;
-    color: #f6ad55;
+    color: #a855f7;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     margin-bottom: 5px;
 }
 
-.sunscape-logo i {
+.serenades-logo i {
     font-size: 2.5rem;
-    color: #f6ad55;
-    animation: sun-glow 3s ease-in-out infinite alternate;
+    color: #a855f7;
+    animation: music-note 3s ease-in-out infinite alternate;
 }
 
-@keyframes sun-glow {
-    from { filter: drop-shadow(0 0 5px rgba(246, 173, 85, 0.5)); }
-    to { filter: drop-shadow(0 0 15px rgba(246, 173, 85, 0.8)); }
+@keyframes music-note {
+    from { transform: scale(1) rotate(-5deg); filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.5)); }
+    to { transform: scale(1.1) rotate(5deg); filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.8)); }
 }
 
 .location {
@@ -75,10 +75,10 @@ body {
     margin-bottom: 15px;
 }
 
-.sunscape-tagline {
+.serenades-tagline {
     font-size: 1.1rem;
     font-weight: 500;
-    color: #f6ad55;
+    color: #a855f7;
     text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     display: flex;
     align-items: center;
@@ -86,8 +86,8 @@ body {
     gap: 8px;
 }
 
-.sunscape-tagline i {
-    color: #fc8181;
+.serenades-tagline i {
+    color: #ec4899;
 }
 
 /* Calculator Grid */
@@ -112,21 +112,21 @@ body {
     box-shadow: 0 25px 50px rgba(0,0,0,0.15);
 }
 
-.cost-section.sunscape-section {
+.cost-section.serenades-section {
     background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
-    border: 2px solid #f6ad55;
+    border: 2px solid #a855f7;
     position: relative;
     overflow: hidden;
 }
 
-.cost-section.sunscape-section::before {
+.cost-section.serenades-section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #f6ad55, #fc8181, #f6ad55);
+    background: linear-gradient(90deg, #a855f7, #ec4899, #a855f7);
 }
 
 .cost-section h2 {
@@ -143,8 +143,8 @@ body {
     color: #d69e2e;
 }
 
-.sunscape-section h2 i {
-    color: #f6ad55;
+.serenades-section h2 i {
+    color: #a855f7;
 }
 
 /* Facility Type Selector */
@@ -174,8 +174,8 @@ body {
     border-color: #d69e2e;
 }
 
-.sunscape-section .facility-type-selector select:focus {
-    border-color: #f6ad55;
+.serenades-section .facility-type-selector select:focus {
+    border-color: #a855f7;
 }
 
 /* Cost Categories */
@@ -226,9 +226,9 @@ body {
     box-shadow: 0 0 0 3px rgba(214, 158, 46, 0.1);
 }
 
-.sunscape-section .input-group input:focus {
-    border-color: #f6ad55;
-    box-shadow: 0 0 0 3px rgba(246, 173, 85, 0.1);
+.serenades-section .input-group input:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
 }
 
 .input-group input::placeholder {
@@ -257,8 +257,8 @@ body {
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
-.sunscape-section .total-amount {
-    color: #f6ad55;
+.serenades-section .total-amount {
+    color: #a855f7;
 }
 
 /* Comparison Section */
@@ -305,15 +305,15 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.comparison-card.sunscape-card {
-    background: linear-gradient(135deg, #f6ad55 0%, #fc8181 100%);
+.comparison-card.serenades-card {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
     color: white;
-    border: 2px solid #f6ad55;
+    border: 2px solid #a855f7;
     position: relative;
     overflow: hidden;
 }
 
-.comparison-card.sunscape-card::before {
+.comparison-card.serenades-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -336,7 +336,7 @@ body {
     color: #2d3748;
 }
 
-.comparison-card.sunscape-card h3 {
+.comparison-card.serenades-card h3 {
     color: white;
 }
 
@@ -351,7 +351,7 @@ body {
     color: #1a365d;
 }
 
-.comparison-card.sunscape-card .amount {
+.comparison-card.serenades-card .amount {
     color: white;
 }
 
@@ -365,7 +365,7 @@ body {
     margin-bottom: 20px;
 }
 
-.comparison-card.sunscape-card .percentage {
+.comparison-card.serenades-card .percentage {
     color: rgba(255,255,255,0.8);
 }
 
@@ -406,7 +406,7 @@ body {
     border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
-.comparison-card.sunscape-card .included-item {
+.comparison-card.serenades-card .included-item {
     color: white;
 }
 
@@ -417,7 +417,7 @@ body {
     margin-right: 8px;
 }
 
-.comparison-card.sunscape-card .included-item::before {
+.comparison-card.serenades-card .included-item::before {
     color: #68d391;
 }
 
@@ -497,9 +497,9 @@ body {
 }
 
 .annual-item:last-child {
-    background: linear-gradient(135deg, #f6ad55 0%, #fc8181 100%);
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
     color: white;
-    border-left-color: #f6ad55;
+    border-left-color: #a855f7;
     font-weight: 600;
 }
 
@@ -527,13 +527,13 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #f6ad55 0%, #fc8181 100%);
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
     color: white;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(246, 173, 85, 0.3);
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
 }
 
 .btn-secondary {
@@ -556,19 +556,165 @@ body {
     transform: translateY(-2px);
 }
 
-.btn-sunscape {
+.btn-serenades {
     background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
     color: white;
-    border: 2px solid #f6ad55;
+    border: 2px solid #a855f7;
 }
 
-.btn-sunscape:hover {
+.btn-serenades:hover {
     background: linear-gradient(135deg, #2d3748 0%, #1a365d 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(246, 173, 85, 0.3);
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
 }
 
-.quick-estimates {
+/* Serenades Pricing Information */
+.serenades-pricing-info {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.serenades-pricing-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="15" cy="15" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="85" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="85" r="0.8" fill="rgba(255,255,255,0.1)"/></svg>');
+    pointer-events: none;
+}
+
+.pricing-highlight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.pricing-highlight i {
+    color: #ffd700;
+    font-size: 1.4rem;
+}
+
+.pricing-details {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.pricing-details p {
+    margin-bottom: 8px;
+}
+
+.pricing-details p:last-child {
+    margin-bottom: 0;
+}
+
+.pricing-details strong {
+    color: #ffd700;
+}
+
+/* Included Categories */
+.included-category {
+    background: #f7fafc;
+    border-radius: 10px;
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.included-category:hover {
+    border-color: #a855f7;
+    background: linear-gradient(135deg, #f0fff4 0%, #f7fafc 100%);
+    transform: translateX(5px);
+}
+
+.included-category label {
+    color: #2d3748;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.included-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
+}
+
+.included-badge i {
+    font-size: 0.8rem;
+}
+
+.serenades-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #718096;
+    font-style: italic;
+}
+
+.serenades-note i {
+    color: #a855f7;
+}
+
+/* Readonly Input Styling */
+.input-group input[readonly] {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+    color: #2d3748;
+    font-weight: 600;
+    cursor: not-allowed;
+}
+
+.input-group input[readonly]:focus {
+    border-color: #cbd5e0;
+    box-shadow: none;
+}
+
+/* Updated Facility Type Selector for Serenades */
+.serenades-section .facility-type-selector select {
+    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+    border: 2px solid #a855f7;
+    font-weight: 500;
+}
+
+.serenades-section .facility-type-selector select:focus {
+    border-color: #ec4899;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+.serenades-section .facility-type-selector select option {
+    font-weight: 500;
+}
+
+.serenades-section .facility-type-selector select option:first-child {
+    color: #718096;
+    font-style: italic;
+}
+
+/* Serenades Information Section */
+.serenades-info {
     background: white;
     border-radius: 20px;
     padding: 30px;
@@ -576,7 +722,7 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-.quick-estimates h3 {
+.serenades-info h3 {
     color: #2d3748;
     font-size: 1.3rem;
     font-weight: 600;
@@ -586,23 +732,24 @@ body {
     gap: 10px;
 }
 
-.quick-estimates h3 i {
-    color: #d69e2e;
+.serenades-info h3 i {
+    color: #a855f7;
 }
 
-.quick-estimates p {
+.serenades-info p {
     color: #4a5568;
     margin-bottom: 25px;
     font-size: 1rem;
+    line-height: 1.6;
 }
 
-.estimates-grid {
+.info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
-.estimate-card {
+.info-card {
     background: #f7fafc;
     border-radius: 15px;
     padding: 25px;
@@ -611,44 +758,37 @@ body {
     border: 2px solid transparent;
 }
 
-.estimate-card:hover {
+.info-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    border-color: #f6ad55;
+    border-color: #a855f7;
 }
 
-.estimate-card h4 {
+.info-card h4 {
     color: #2d3748;
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-.estimate-card p {
-    color: #4a5568;
+.info-card h4 i {
+    color: #a855f7;
     font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 20px;
 }
 
-.btn-estimate {
-    background: linear-gradient(135deg, #f6ad55 0%, #fc8181 100%);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.info-card p {
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
-.btn-estimate:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(246, 173, 85, 0.3);
-}
-
-/* Sunscape Contact Section */
-.sunscape-contact {
+/* Serenades Contact Section */
+.serenades-contact {
     background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
     border-radius: 20px;
     padding: 40px;
@@ -659,18 +799,18 @@ body {
     overflow: hidden;
 }
 
-.sunscape-contact::before {
+.serenades-contact::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(246,173,85,0.1)"/><circle cx="90" cy="20" r="0.8" fill="rgba(246,173,85,0.1)"/><circle cx="20" cy="90" r="0.6" fill="rgba(246,173,85,0.1)"/><circle cx="80" cy="80" r="0.7" fill="rgba(246,173,85,0.1)"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(168,85,247,0.1)"/><circle cx="90" cy="20" r="0.8" fill="rgba(168,85,247,0.1)"/><circle cx="20" cy="90" r="0.6" fill="rgba(168,85,247,0.1)"/><circle cx="80" cy="80" r="0.7" fill="rgba(168,85,247,0.1)"/></svg>');
     pointer-events: none;
 }
 
-.sunscape-contact h3 {
+.serenades-contact h3 {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 15px;
@@ -680,11 +820,11 @@ body {
     gap: 10px;
 }
 
-.sunscape-contact h3 i {
-    color: #f6ad55;
+.serenades-contact h3 i {
+    color: #a855f7;
 }
 
-.sunscape-contact p {
+.serenades-contact p {
     font-size: 1.1rem;
     margin-bottom: 30px;
     opacity: 0.9;
@@ -713,7 +853,7 @@ body {
 }
 
 .contact-item i {
-    color: #f6ad55;
+    color: #a855f7;
     font-size: 1.2rem;
 }
 
@@ -782,7 +922,7 @@ body {
         font-size: 1.5rem;
     }
 
-    .sunscape-contact {
+    .serenades-contact {
         padding: 30px 20px;
     }
 }
@@ -824,8 +964,8 @@ body {
     }
 
     .action-buttons,
-    .quick-estimates,
-    .sunscape-contact {
+    .serenades-info,
+    .serenades-contact {
         display: none;
     }
 
@@ -834,223 +974,4 @@ body {
         box-shadow: none;
         border: 1px solid #ccc;
     }
-} 
-
-/* Sunscape Pricing Information */
-.sunscape-pricing-info {
-    background: linear-gradient(135deg, #f6ad55 0%, #fc8181 100%);
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 25px;
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.sunscape-pricing-info::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="15" cy="15" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="85" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="85" r="0.8" fill="rgba(255,255,255,0.1)"/></svg>');
-    pointer-events: none;
-}
-
-.pricing-highlight {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.pricing-highlight i {
-    color: #ffd700;
-    font-size: 1.4rem;
-}
-
-.pricing-details {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    opacity: 0.95;
-}
-
-.pricing-details p {
-    margin-bottom: 8px;
-}
-
-.pricing-details p:last-child {
-    margin-bottom: 0;
-}
-
-.pricing-details strong {
-    color: #ffd700;
-}
-
-/* Included Categories */
-.included-category {
-    background: #f7fafc;
-    border-radius: 10px;
-    padding: 15px;
-    border: 2px solid #e2e8f0;
-    transition: all 0.3s ease;
-}
-
-.included-category:hover {
-    border-color: #f6ad55;
-    background: linear-gradient(135deg, #f0fff4 0%, #f7fafc 100%);
-    transform: translateX(5px);
-}
-
-.included-category label {
-    color: #2d3748;
-    font-weight: 600;
-    margin-bottom: 10px;
-    display: block;
-}
-
-.included-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
-}
-
-.included-badge i {
-    font-size: 0.8rem;
-}
-
-.sunscape-note {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
-    font-size: 0.9rem;
-    color: #718096;
-    font-style: italic;
-}
-
-.sunscape-note i {
-    color: #f6ad55;
-}
-
-/* Readonly Input Styling */
-.input-group input[readonly] {
-    background: #f7fafc;
-    border-color: #cbd5e0;
-    color: #2d3748;
-    font-weight: 600;
-    cursor: not-allowed;
-}
-
-.input-group input[readonly]:focus {
-    border-color: #cbd5e0;
-    box-shadow: none;
-}
-
-/* Updated Facility Type Selector for Sunscape */
-.sunscape-section .facility-type-selector select {
-    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
-    border: 2px solid #f6ad55;
-    font-weight: 500;
-}
-
-.sunscape-section .facility-type-selector select:focus {
-    border-color: #fc8181;
-    box-shadow: 0 0 0 3px rgba(246, 173, 85, 0.1);
-}
-
-.sunscape-section .facility-type-selector select option {
-    font-weight: 500;
-}
-
-.sunscape-section .facility-type-selector select option:first-child {
-    color: #718096;
-    font-style: italic;
-} 
-
-/* Sunscape Information Section */
-.sunscape-info {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-.sunscape-info h3 {
-    color: #2d3748;
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.sunscape-info h3 i {
-    color: #f6ad55;
-}
-
-.sunscape-info p {
-    color: #4a5568;
-    margin-bottom: 25px;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.info-card {
-    background: #f7fafc;
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    border-color: #f6ad55;
-}
-
-.info-card h4 {
-    color: #2d3748;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.info-card h4 i {
-    color: #f6ad55;
-    font-size: 1.1rem;
-}
-
-.info-card p {
-    color: #4a5568;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
 } 

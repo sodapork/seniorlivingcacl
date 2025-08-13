@@ -4,9 +4,10 @@ class SeniorLivingCalculator {
     constructor() {
         this.currentCosts = {};
         this.seniorCosts = {};
-        this.sunscapePricing = {
-            assisted: 3950,
-            memory: 5250
+        this.serenadesPricing = {
+            shared: 4175,
+            private: 5045,
+            'serenades-her': 4175
         };
         
         this.init();
@@ -36,7 +37,7 @@ class SeniorLivingCalculator {
 
         // Facility type selector
         document.getElementById('facilityType').addEventListener('change', (e) => {
-            this.updateSunscapePricing(e.target.value);
+            this.updateSerenadesPricing(e.target.value);
         });
 
         // Real-time total updates
@@ -113,7 +114,7 @@ class SeniorLivingCalculator {
 
     updateSeniorTotal() {
         const baseCost = parseFloat(document.getElementById('seniorHousing').value) || 0;
-        const total = baseCost; // All other costs are included in Sunscape pricing
+        const total = baseCost; // All other costs are included in Serenades pricing
         
         this.seniorCosts = {
             seniorHousing: baseCost,
@@ -128,16 +129,27 @@ class SeniorLivingCalculator {
         document.getElementById('seniorTotal').textContent = this.formatCurrency(total);
     }
 
-    updateSunscapePricing(selectedType) {
+    updateSerenadesPricing(selectedType) {
         const baseCostInput = document.getElementById('seniorHousing');
         
-        if (selectedType && this.sunscapePricing[selectedType]) {
-            const baseCost = this.sunscapePricing[selectedType];
+        if (selectedType && this.serenadesPricing[selectedType]) {
+            const baseCost = this.serenadesPricing[selectedType];
             baseCostInput.value = baseCost.toFixed(2);
             this.updateSeniorTotal();
             
             // Show success message
-            const careType = selectedType === 'assisted' ? 'Assisted Living' : 'Memory Care (Valeo™)';
+            let careType = '';
+            switch(selectedType) {
+                case 'shared':
+                    careType = 'Shared Suite';
+                    break;
+                case 'private':
+                    careType = 'Private Suite';
+                    break;
+                case 'serenades-her':
+                    careType = 'Serenades for Her';
+                    break;
+            }
             this.showAlert(`Perfect! ${careType} pricing applied: ${this.formatCurrency(baseCost)}/month`, 'success');
         } else {
             baseCostInput.value = '';
@@ -157,7 +169,7 @@ class SeniorLivingCalculator {
         }
 
         if (seniorTotal === 0) {
-            this.showAlert('Please select your Sunscape care level to see the comparison.', 'warning');
+            this.showAlert('Please select your Serenades accommodation type to see the comparison.', 'warning');
             return;
         }
 
@@ -238,16 +250,16 @@ class SeniorLivingCalculator {
         let className = '';
 
         if (difference < 0) {
-            // Sunscape is cheaper
-            message = `Excellent! Sunscape Boca Raton could save you ${this.formatCurrency(Math.abs(difference))} every month (${Math.abs(percentageDiff).toFixed(1)}% less than your current costs). That's ${this.formatCurrency(Math.abs(annualSavings))} in annual savings! Experience luxury senior living while saving money.`;
+            // Serenades is cheaper
+            message = `Excellent! Serenades at The Villages could save you ${this.formatCurrency(Math.abs(difference))} every month (${Math.abs(percentageDiff).toFixed(1)}% less than your current costs). That's ${this.formatCurrency(Math.abs(annualSavings))} in annual savings! Experience exceptional memory care while saving money.`;
             className = 'positive';
         } else if (difference > 0) {
-            // Sunscape is more expensive
-            message = `Sunscape Boca Raton would cost ${this.formatCurrency(difference)} more per month (${percentageDiff.toFixed(1)}% more than your current costs). That's ${this.formatCurrency(annualSavings)} more annually. Remember to consider the premium value of luxury amenities, gourmet dining, concierge services, and the beautiful Boca Raton location.`;
+            // Serenades is more expensive
+            message = `Serenades at The Villages would cost ${this.formatCurrency(difference)} more per month (${percentageDiff.toFixed(1)}% more than your current costs). That's ${this.formatCurrency(annualSavings)} more annually. Remember to consider the value of specialized memory care, Valeo™ programs, family-style dining, and the beautiful The Villages location.`;
             className = 'negative';
         } else {
             // Costs are the same
-            message = 'Your costs would be about the same! Experience luxury senior living with premium amenities, gourmet dining, and exceptional care in beautiful Boca Raton at Sunscape.';
+            message = 'Your costs would be about the same! Experience exceptional memory care with Valeo™ programs, family-style dining, and compassionate care in beautiful The Villages at Serenades.';
             className = 'neutral';
         }
 
@@ -311,32 +323,32 @@ class SeniorLivingCalculator {
         const data = {
             timestamp: new Date().toLocaleString(),
             currentCosts: this.currentCosts,
-            sunscapeCosts: {
+            serenadesCosts: {
                 baseCost: seniorTotal,
                 includedServices: [
-                    'Gourmet Meals & Dining',
-                    'Healthcare Services',
-                    'Luxury Activities & Programs',
-                    'Concierge Transportation',
+                    'Family-Style Dining',
+                    'Valeo™ Memory Care Programs',
+                    'Wellness & Engagement Activities',
+                    '24/7 Care Support',
                     'All Utilities',
                     'Housekeeping & Maintenance',
-                    '24/7 Care Support'
+                    'Safety Features & Monitoring'
                 ]
             },
             totals: {
                 current: currentTotal,
-                sunscape: seniorTotal,
+                serenades: seniorTotal,
                 difference: difference,
                 annual: {
                     current: currentTotal * 12,
-                    sunscape: seniorTotal * 12,
+                    serenades: seniorTotal * 12,
                     savings: (currentTotal - seniorTotal) * 12
                 }
             },
             facilityType: document.getElementById('facilityType').value
         };
 
-        const filename = `sunscape-boca-raton-cost-comparison-${new Date().toISOString().split('T')[0]}.json`;
+        const filename = `serenades-villages-cost-comparison-${new Date().toISOString().split('T')[0]}.json`;
         this.downloadJSON(data, filename);
     }
 
@@ -433,7 +445,7 @@ class SeniorLivingCalculator {
         };
 
         try {
-            localStorage.setItem('sunscapeCalculatorData', JSON.stringify(data));
+            localStorage.setItem('serenadesCalculatorData', JSON.stringify(data));
         } catch (e) {
             console.warn('Could not save data to localStorage:', e);
         }
@@ -441,7 +453,7 @@ class SeniorLivingCalculator {
 
     loadSavedData() {
         try {
-            const saved = localStorage.getItem('sunscapeCalculatorData');
+            const saved = localStorage.getItem('serenadesCalculatorData');
             if (saved) {
                 const data = JSON.parse(saved);
                 
@@ -476,7 +488,7 @@ class SeniorLivingCalculator {
 
     clearSavedData() {
         try {
-            localStorage.removeItem('sunscapeCalculatorData');
+            localStorage.removeItem('serenadesCalculatorData');
         } catch (e) {
             console.warn('Could not clear saved data:', e);
         }

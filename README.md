@@ -1,10 +1,10 @@
-# Sunscape Boca Raton - Senior Living Cost Calculator
+# Serenades at The Villages - Memory Care Cost Calculator
 
-A comprehensive web-based calculator that helps users compare their current cost of living with luxury senior living expenses at Sunscape Boca Raton. This tool provides detailed cost analysis, savings calculations, and export functionality to help make informed decisions about premium senior living options in beautiful Boca Raton, Florida.
+A comprehensive web-based calculator that helps users compare their current cost of living with memory care expenses at Serenades at The Villages. This tool provides detailed cost analysis, savings calculations, and export functionality to help make informed decisions about memory care options in The Villages, Florida.
 
-## About Sunscape Boca Raton
+## About Serenades at The Villages
 
-Sunscape Boca Raton is a premier luxury senior living community offering exceptional care, gourmet dining, and world-class amenities in the heart of beautiful Boca Raton. Our calculator helps you understand how our premium services compare to your current lifestyle costs.
+Serenades at The Villages is a premier memory care community offering a unique, person-centered approach to memory care in The Villages, Florida. Our purpose-built design prioritizes every resident's safety, comfort, and engagement. As the only stand-alone memory care community in the area, Serenades at The Villages stands apart with its three intimate neighborhoods, each with just 15 residences and its own dining room.
 
 ## Features
 
@@ -19,14 +19,14 @@ Sunscape Boca Raton is a premier luxury senior living community offering excepti
 - **Entertainment**: Recreation, hobbies, dining out
 - **Other Expenses**: Miscellaneous monthly costs
 
-### 🌅 Sunscape Boca Raton Costs
-- **Monthly Rent/Base Cost**: Primary facility cost
-- **Gourmet Meals & Dining**: Premium food service and dining options
-- **Healthcare Services**: Medical care, medication management
-- **Luxury Activities & Programs**: Recreational activities and social programs
-- **Concierge Transportation**: Premium shuttle services and transportation
+### 🎵 Serenades at The Villages Costs
+- **Monthly Base Cost**: Primary facility cost
+- **Family-Style Dining**: Meaningful moments of togetherness and joy around the table
+- **Valeo™ Memory Care Programs**: Personalized programs tailored to each resident's unique hobbies and abilities
+- **Wellness & Engagement Activities**: Opportunities for engagement and joy while maintaining dignity and independence
+- **24/7 Care Support**: Round-the-clock care and supervision
 - **All Utilities Included**: Utilities covered by facility
-- **Additional Sunscape Amenities**: Premium services and luxury amenities
+- **Safety Features & Monitoring**: Motion sensors, soft amber lighting, and comprehensive safety measures
 
 ### 📊 Comparison Analysis
 - **Side-by-side cost comparison**
@@ -36,40 +36,30 @@ Sunscape Boca Raton is a premier luxury senior living community offering excepti
 - **Savings analysis with actionable insights**
 
 ### 🚀 Additional Features
-- **Quick Estimates**: Pre-filled cost estimates for different Sunscape experiences
+- **Auto-Population**: Pre-filled cost estimates for different accommodation types
 - **Data Persistence**: Saves your inputs automatically
 - **Export Functionality**: Download results as JSON file
 - **Responsive Design**: Works on desktop, tablet, and mobile
-- **Direct Contact**: Easy access to Sunscape Boca Raton information
+- **Direct Contact**: Easy access to Serenades at The Villages information
 
-## Sunscape Experience Types
+## Serenades Accommodation Types
 
-The calculator supports five main types of Sunscape experiences:
+The calculator supports three main accommodation types at Serenades:
 
-1. **Independent Living at Sunscape**
-   - For active seniors who need minimal assistance
-   - Typical cost: $2,500 - $4,500/month
-   - Includes luxury housing, gourmet meals, and premium amenities
+1. **Shared Suite**
+   - For residents who prefer companionship and shared living spaces
+   - Starting at $4,175/month
+   - Includes all memory care services and amenities
 
-2. **Assisted Living at Sunscape**
-   - For seniors who need help with daily activities
-   - Typical cost: $4,000 - $6,500/month
-   - Includes personal care, gourmet dining, and healthcare support
+2. **Private Suite**
+   - For residents who prefer private accommodations
+   - Starting at $5,045/month
+   - Includes all memory care services and amenities
 
-3. **Memory Care at Sunscape**
-   - Specialized care for seniors with dementia/Alzheimer's
-   - Typical cost: $5,000 - $8,000/month
-   - Includes 24/7 supervision and specialized care
-
-4. **Nursing Care at Sunscape**
-   - Skilled nursing care for seniors with medical needs
-   - Typical cost: $7,500 - $11,000/month
-   - Includes full medical care and supervision
-
-5. **CCRC at Sunscape**
-   - Multi-level care facility with independent to nursing care
-   - Typical cost: $3,500 - $9,000/month
-   - Allows aging in place with changing care needs
+3. **Serenades for Her**
+   - Women-specific memory care with two dedicated neighborhoods
+   - Starting at $4,175/month (same rates as shared suite)
+   - Designed to provide compassionate, intimate care for women
 
 ## How to Use
 
@@ -83,32 +73,24 @@ The calculator supports five main types of Sunscape experiences:
 3. Leave fields blank if they don't apply to your situation
 4. Totals update automatically as you type
 
-### Entering Sunscape Costs
-1. Select the type of Sunscape experience from the dropdown
-2. Enter the monthly costs for the facility
-3. Use the "Quick Estimates" section for typical cost ranges
-4. Click "Try This Estimate" to auto-fill with typical costs
+### Entering Serenades Costs
+1. Select the type of Serenades accommodation from the dropdown
+2. The monthly base cost will automatically populate
+3. All other services are included in the base price
 
 ### Running the Comparison
-1. Click "See Your Sunscape Comparison" to see the analysis
+1. Click "See Your Serenades Comparison" to see the analysis
 2. Review the side-by-side cost comparison
 3. Check the savings analysis and annual breakdown
 4. Use the export feature to save your results
 
-### Using Quick Estimates
-- Click any "Try This Estimate" button to auto-fill Sunscape costs
-- Estimates are based on luxury senior living averages
-- You can adjust the auto-filled values as needed
-- Different experience types have different typical cost breakdowns
+## Contact Serenades at The Villages
 
-## Contact Sunscape Boca Raton
+Ready to learn more about exceptional memory care in The Villages?
 
-Ready to learn more about luxury senior living in beautiful Boca Raton?
-
-- **Phone**: (561) 555-0123
-- **Email**: info@sunscapebocaraton.com
-- **Address**: 123 Luxury Lane, Boca Raton, FL 33433
-- **Website**: [www.sunscapebocaraton.com](https://www.sunscapebocaraton.com/)
+- **Phone**: (352) 633-9017
+- **Address**: 2450 Parr Drive, The Villages, FL 32162
+- **Website**: [sonataseniorliving.com/serenades-the-villages](https://sonataseniorliving.com/serenades-the-villages)
 
 ## Keyboard Shortcuts
 
@@ -142,7 +124,7 @@ Ready to learn more about luxury senior living in beautiful Boca Raton?
 
 ### File Structure
 ```
-Sunscape Boca Raton Cost Calculator/
+Serenades at The Villages Cost Calculator/
 ├── index.html          # Main HTML file
 ├── styles.css          # CSS styling
 ├── script.js           # JavaScript functionality
@@ -156,43 +138,42 @@ Sunscape Boca Raton Cost Calculator/
 
 ## Cost Considerations
 
-### Factors Affecting Sunscape Costs
-- **Location**: Beautiful Boca Raton, Florida location
-- **Luxury Amenities**: Premium services and facilities
-- **Level of Care**: More intensive care costs more
-- **Gourmet Dining**: Premium meal options and dining experiences
-- **Concierge Services**: Personalized service and attention
+### Factors Affecting Serenades Costs
+- **Location**: Beautiful The Villages, Florida location
+- **Memory Care Specialization**: Purpose-built for memory care needs
+- **Accommodation Type**: Shared vs. private suite options
+- **Valeo™ Programs**: Personalized memory care programming
+- **Safety Features**: Comprehensive safety and monitoring systems
 
-### Premium Value at Sunscape
-- **Luxury Housing**: Beautiful, well-appointed residences
-- **Gourmet Dining**: Chef-prepared meals with multiple dining venues
-- **Premium Healthcare**: On-site medical care and wellness programs
-- **Luxury Activities**: Cultural, social, and recreational programs
-- **Concierge Services**: Personalized assistance and transportation
-- **Beautiful Location**: Prime Boca Raton location with easy access to amenities
+### Value at Serenades
+- **Person-Centered Care**: Valeo™ programs tailored to individual abilities
+- **Family-Style Dining**: Meaningful moments of togetherness and joy
+- **Intimate Neighborhoods**: Just 15 residences per neighborhood for close-knit community
+- **Safety & Comfort**: Motion sensors, soft amber lighting, and beautiful courtyards
+- **The Villages Location**: Part of a vibrant master-planned community
 
 ## Tips for Accurate Calculations
 
 1. **Be Comprehensive**: Include all your current expenses
-2. **Consider Luxury Value**: Factor in the premium amenities and services
-3. **Research Boca Raton Costs**: Local costs may differ from national averages
+2. **Consider Memory Care Value**: Factor in specialized care and safety features
+3. **Research The Villages Costs**: Local costs may differ from national averages
 4. **Include All Income Sources**: Consider how income affects affordability
-5. **Account for Premium Services**: Sunscape offers luxury-level care and amenities
+5. **Account for Specialized Services**: Serenades offers memory care-specific amenities
 
-## Why Choose Sunscape Boca Raton?
+## Why Choose Serenades at The Villages?
 
-- **Luxury Living**: Premium accommodations and amenities
-- **Gourmet Dining**: Multiple dining venues with chef-prepared meals
-- **Beautiful Location**: Prime Boca Raton location near beaches and cultural attractions
-- **Comprehensive Care**: Multiple levels of care available
-- **Concierge Services**: Personalized attention and assistance
-- **Active Lifestyle**: Rich calendar of activities and social events
+- **Memory Care Specialization**: Purpose-built design for memory care needs
+- **Valeo™ Programs**: Personalized care tailored to individual abilities
+- **Intimate Setting**: Small neighborhoods with just 15 residences each
+- **Family-Style Dining**: Meaningful connections around the table
+- **Safety Features**: Comprehensive monitoring and safety systems
+- **The Villages Location**: Part of a vibrant master-planned community
 
 ## Support and Feedback
 
-This calculator is designed to provide estimates and comparisons for Sunscape Boca Raton. For accurate financial planning:
+This calculator is designed to provide estimates and comparisons for Serenades at The Villages. For accurate financial planning:
 
-- Contact Sunscape Boca Raton directly for current rates and availability
+- Contact Serenades at The Villages directly for current rates and availability
 - Consult with financial advisors
 - Schedule a personal tour of our beautiful community
 - Review actual contracts and fee schedules
@@ -203,6 +184,6 @@ This project is open source and available for personal and educational use.
 
 ---
 
-**Note**: This calculator provides estimates based on typical luxury senior living costs. Actual costs at Sunscape Boca Raton may vary. Contact us directly for current rates, availability, and to schedule your personal tour of our beautiful community.
+**Note**: This calculator provides estimates based on typical memory care costs. Actual costs at Serenades at The Villages may vary. Contact us directly for current rates, availability, and to schedule your personal tour of our beautiful community.
 
-**Visit us**: [www.sunscapebocaraton.com](https://www.sunscapebocaraton.com/) 
+**Visit us**: [sonataseniorliving.com/serenades-the-villages](https://sonataseniorliving.com/serenades-the-villages) 
