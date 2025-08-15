@@ -8,7 +8,7 @@ Serenades at The Villages is a premier memory care community offering a unique, 
 
 ## Features
 
-### 🏠 Current Living Costs
+### Current Living Costs
 - **Housing**: Rent, mortgage, property taxes
 - **Utilities**: Electric, water, gas, internet, phone
 - **Food & Groceries**: Monthly food expenses
@@ -19,7 +19,7 @@ Serenades at The Villages is a premier memory care community offering a unique, 
 - **Entertainment**: Recreation, hobbies, dining out
 - **Other Expenses**: Miscellaneous monthly costs
 
-### 🎵 Serenades at The Villages Costs
+### Serenades at The Villages Costs
 - **Monthly Base Cost**: Primary facility cost
 - **Family-Style Dining**: Meaningful moments of togetherness and joy around the table
 - **Valeo™ Memory Care Programs**: Personalized programs tailored to each resident's unique hobbies and abilities
@@ -28,14 +28,14 @@ Serenades at The Villages is a premier memory care community offering a unique, 
 - **All Utilities Included**: Utilities covered by facility
 - **Safety Features & Monitoring**: Motion sensors, soft amber lighting, and comprehensive safety measures
 
-### 📊 Comparison Analysis
+### Comparison Analysis
 - **Side-by-side cost comparison**
 - **Percentage breakdowns**
 - **Monthly and annual savings calculations**
 - **Visual cost difference indicators**
 - **Savings analysis with actionable insights**
 
-### 🚀 Additional Features
+### Additional Features
 - **Auto-Population**: Pre-filled cost estimates for different accommodation types
 - **Data Persistence**: Saves your inputs automatically
 - **Export Functionality**: Download results as JSON file
